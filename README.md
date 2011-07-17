@@ -25,32 +25,37 @@ So each piece of content has to be federated to the following Indie Web recipien
 <table>
 	<tbody>
 		<tr>
+			<th>Followers</th>
 			<th>Network Type</th>
 			<th>Totals</th>
 		</tr>
 		<tr>
-			<td>10,456 Diaspora nodes</td>
+			<td>10,456</td>
+			<td>Diaspora nodes</td>
 			<td>4,705,200</td>
 		</tr>
 		<tr>
-			<td>3,876 Social-Igniter nodes</td>
+			<td>3,876</td>
+			<td>Social-Igniter nodes</td>
 			<td>1,744,200</td>
-
 		</tr>
 		<tr>
-			<td>6,467 Status.net nodes</td>
+			<td>6,467</td>
+			<td>Status.net nodes</td>
 			<td>2,910,150</td>
 		</tr>
 		<tr>
-			<td>150 Proprietary APIs</td>
+			<td>150</td>
+			<td>Proprietary APIs</td>
 			<td>67,500</td>
 		</tr>
 		<tr>
-			<td>13,450 Email addresses</td>
+			<td>13,450</td>
+			<td>Email Addresses</td>
 			<td>6,052,500</td>
 		</tr>
 		<tr>
-			<td align="right">TOTAL</td>
+			<td colspan="2" align="right">TOTAL</td>
 			<td>15,479,550</td>
 		</tr>
 	</tbody>
@@ -68,7 +73,7 @@ So why not offset some of that load to each users browser while they are visitin
 Implementation
 ==============
 
-A relatively small JS file with some basic functions like
+A relatively small JS file with some basic functions that create jobs, view jobs, and hand jobs off to various application specific callback functions
 
 Later.js could piggy back on top of the project storageLocker by Oscar Godson which does:
 
