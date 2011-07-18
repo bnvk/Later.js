@@ -79,54 +79,8 @@ https://github.com/OscarGodson/storageLocker
 
 Once jobs gets added to the Later que they sit in the users localStorage until they are processed, like a sending que stored in a RDBMS
 
-Here is a nifty example of an implementation written by Mr. @OscarGodson
+In example.html is a nifty example implementation written by Mr. @OscarGodson of a comment que that expresses one application of what Later.js could do.
 
-`<script type="text/javascript">
-//Var would be set with server side code or something...
-var postId = 12;
-//Later(name,data,timer,callback)
-//@param name is a string that allows to select the cron job
-//@param data is an object that allows you to set the _starting_ data
-//@param timer is an integer that sets the cron job's interval
-//@callback returns the job (a 'Later()' object so you can get the data out...) and do stuff with it
-
-//Example setting a job that looks for new comments, and if so updates the comment count
-//in the Later() object and also appends just the new comments to some <div id="post-12">
-new Later('updateCommentCount',{ comments:0 },60000,function(job){
-  //Save comment count (we set the default in the 2nd param)
-  var comments = job.comments;
-  //Make the API request
-  $.get('/api/comments/'+postId,function(json){
-    //If the returned comment count is greater than the cron job's data for comments (job.comments)...
-    if(json.comments.length > comments){
-      //Update the count of jobs.comments
-      comments = json.comments.length;
-      //Save only the new comments to a "newComments" var
-      var newComments = json.comments.slice(json.comments.length);
-      //Finally, loop through all the new comments and append the content to the post-12 div.
-      for(x = 0; x < newComments.count; x++){
-        $('#post-'+postId).append('<p id="comment-'+newComments[x].id+'">'+newComments[x].content+'</p>');
-      }
-    }
-  });
-});
-
-//Example deleting a job...
-Later('updateCommentCount').remove();
-
-//Example resetting data (reset the comments to 0)...
-Later('updateCommentCount').update({comments:0});
-
-//Example just getting current data.
-//This example returns JUST the data for 'comments', but if you wanted to return all
-//you could do the 2nd example, or a set of data, the 3nd
-Later('updateCommentCount').get('comments');
-Later('updateCommentCount').get();
-Later('updateCommentCount').get(['comments','lorem','foo']);
-
-//P.S. you could also build Later without the "new Later()" syntax and go more "jQuery" like with:
-Later('updateCommentCount',{ comments:0 },60000,function(job){});
-</script>`
 
 Recap
 =====
